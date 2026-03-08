@@ -1,99 +1,38 @@
-# SimpleRNN IMDB Sentiment Analysis (Streamlit App)
+# 🎬 IMDB Sentiment Analysis using SimpleRNN
 
-## Project Overview
-This project is a Sentiment Analysis web application built using **TensorFlow, SimpleRNN, and Streamlit**.
+![Python](https://img.shields.io/badge/Python-3.11-blue)
+![TensorFlow](https://img.shields.io/badge/TensorFlow-Deep%20Learning-orange)
+![Streamlit](https://img.shields.io/badge/Streamlit-Web%20App-red)
+![License](https://img.shields.io/badge/License-Educational-green)
 
-The model predicts whether a movie review is **Positive** or **Negative** based on user input text.
+A **Deep Learning NLP project** that classifies movie reviews as **Positive** or **Negative** using a **Simple Recurrent Neural Network (SimpleRNN)** trained on the IMDB movie review dataset.
 
-The model is trained on the **IMDB Movie Review Dataset**, which contains 50,000 labeled movie reviews for binary sentiment classification.
-
-Users can enter any movie review in the web interface and instantly receive the predicted sentiment with confidence score.
-
----
-
-## Tech Stack
-
-- Python
-- TensorFlow / Keras
-- SimpleRNN
-- Streamlit
-- NumPy
-- IMDB Dataset
+The project also includes a **Streamlit web application** where users can enter their own review and instantly see the predicted sentiment.
 
 ---
 
-## Project Structure
+# 🚀 Project Demo
 
-```
-RNN Classification/
-│
-├── main.py                 # Streamlit application
-├── simplernn_imdb.h5       # Trained SimpleRNN model
-├── simplernn.ipynb         # Model training notebook
-├── embedding.ipynb         # Word embedding exploration
-├── prediction.ipynb        # Model testing notebook
-├── requirements.txt        # Required dependencies
-└── README.md               # Project documentation
-```
-
----
-
-## Model Architecture
-
-The model uses a **Simple Recurrent Neural Network (SimpleRNN)** to process sequential text data.
-
-Architecture:
-
-```
-Embedding Layer
-        ↓
-SimpleRNN Layer
-        ↓
-Dense Layer (Sigmoid Activation)
-```
-
-- **Embedding Layer** converts words into dense vector representations.
-- **SimpleRNN Layer** processes sequential text information.
-- **Dense Layer** outputs the probability of positive or negative sentiment.
-
----
-
-## Dataset
-
-Dataset used:
-
-**IMDB Movie Review Dataset**
-
-Details:
-- 50,000 movie reviews
-- Binary sentiment labels (Positive / Negative)
-- Vocabulary limited to the **top 10,000 most frequent words**
-- Reviews padded to fixed sequence length
-
----
-
-## Example Prediction
-
-Input:
+Example Input
 
 ```
 I loved this movie. The acting and storyline were amazing.
 ```
 
-Output:
+Prediction
 
 ```
 Sentiment: Positive
 Prediction Score: 86%
 ```
 
-Another Example:
+Another Example
 
 ```
 I hated this movie. It was boring and poorly written.
 ```
 
-Output:
+Prediction
 
 ```
 Sentiment: Negative
@@ -102,18 +41,97 @@ Prediction Score: 15%
 
 ---
 
-## How to Run the Project
+# 🧠 Model Architecture
 
-### 1. Clone the Repository
+The model processes sequential text data using a **SimpleRNN network**.
 
 ```
-git clone https://github.com/YOUR_USERNAME/YOUR_REPOSITORY.git
-cd YOUR_REPOSITORY
+Text Input
+     ↓
+Embedding Layer
+     ↓
+SimpleRNN Layer
+     ↓
+Dense Layer (Sigmoid)
+     ↓
+Sentiment Prediction
+```
+
+### Layers Explained
+
+**Embedding Layer**
+- Converts words into dense vector representations
+
+**SimpleRNN Layer**
+- Processes the sequence of word embeddings
+
+**Dense Layer**
+- Outputs probability of Positive vs Negative sentiment
+
+---
+
+# 📊 Dataset
+
+Dataset Used: **IMDB Movie Review Dataset**
+
+Dataset Details
+
+- 50,000 movie reviews
+- Binary sentiment classification
+- 25,000 training samples
+- 25,000 testing samples
+- Vocabulary limited to **10,000 most frequent words**
+
+Source  
+https://keras.io/api/datasets/imdb/
+
+---
+
+# 🛠 Tech Stack
+
+| Technology | Purpose |
+|------------|---------|
+Python | Programming language |
+TensorFlow / Keras | Deep learning framework |
+SimpleRNN | Sequence modeling |
+Streamlit | Web application interface |
+NumPy | Numerical operations |
+
+---
+
+# 📂 Project Structure
+
+```
+Deep Learning NLP/
+│
+├── RNN Classification/
+│   ├── main.py
+│   ├── simplernn_imdb.h5
+│   ├── simplernn.ipynb
+│   ├── embedding.ipynb
+│   ├── prediction.ipynb
+│   └── README.md
+│
+├── ANN Classification/
+│   └── (ANN project files)
+│
+└── requirements.txt
 ```
 
 ---
 
-### 2. Create Virtual Environment
+# ▶️ How to Run the Project
+
+## 1️⃣ Clone Repository
+
+```
+git clone https://github.com/YOUR_USERNAME/YOUR_REPO.git
+cd YOUR_REPO
+```
+
+---
+
+## 2️⃣ Create Virtual Environment
 
 ```
 python -m venv venv
@@ -122,7 +140,7 @@ source venv/bin/activate
 
 ---
 
-### 3. Install Dependencies
+## 3️⃣ Install Dependencies
 
 ```
 pip install -r requirements.txt
@@ -130,13 +148,21 @@ pip install -r requirements.txt
 
 ---
 
-### 4. Run the Streamlit App
+## 4️⃣ Run Streamlit App
+
+Navigate to project folder
+
+```
+cd "RNN Classification"
+```
+
+Run the application
 
 ```
 streamlit run main.py
 ```
 
-The application will open in your browser at:
+Application will open in browser:
 
 ```
 http://localhost:8501
@@ -144,28 +170,30 @@ http://localhost:8501
 
 ---
 
-## Deployment
+# 📈 Model Limitations
 
-This application can be deployed using:
+Because the model uses **SimpleRNN**, it may sometimes struggle with:
 
-- Streamlit Cloud
-- HuggingFace Spaces
-- AWS / GCP / Azure
-- Docker
+- Very short sentences
+- Complex grammar
+- Negations such as "not bad"
+- Sarcasm
 
----
-
-## Future Improvements
-
-- Upgrade model from **SimpleRNN → LSTM / GRU**
-- Improve text preprocessing
-- Add visualization of prediction confidence
-- Use transformer-based models such as **BERT**
-- Deploy with CI/CD pipeline
+Future models like **LSTM, GRU, or Transformers** handle these cases better.
 
 ---
 
+# 🔮 Future Improvements
 
-## License
+- Replace **SimpleRNN → LSTM**
+- Add **GRU architecture**
+- Implement **BERT transformer model**
+- Improve preprocessing pipeline
+- Deploy application to **Streamlit Cloud**
+- Add model explainability tools
 
-This project is developed for **educational and learning purposes**.
+---
+
+# 📜 License
+
+This project is developed for **educational and research purposes**.
